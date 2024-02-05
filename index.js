@@ -19,7 +19,7 @@ module.exports = function (request, options) {
     const fields = {};
     const filePromises = [];
 
-    request.on('close', cleanup);
+    request.on('close', onEnd);
 
     bb.on('field', onField.bind(null, fields))
       .on('file', customOnFile || onFile.bind(null, filePromises))
